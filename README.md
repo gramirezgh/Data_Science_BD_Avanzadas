@@ -4,6 +4,9 @@
 #### Guery Favio Ramirez Martinez
 
 ## 1.- Proceso de configuración de alta disponibilidad
+EL Obejtivo de la creacíon de Replicaset Es proporcionar ALta Disponibilidad de nuestras bases de datos MongoDB. La idea consiste en tener corriendo varias instancias de mongo con el fin de que la información se replique entre ellas, de tal forma que si el nodo primario se cae, pueda ser remplazado automáticamente por otro.
+### 1.1 Esquema de Red
+(img/MDB_1.png)
 
 ## 2.- Modelo de datos 
 
@@ -18,7 +21,3 @@
 ### $project
 
 ## 4.-Rendimiento y Análisis de Consultas
-
-## 5.- Buenas Prácticas
-
-## 6.- Conclusión
