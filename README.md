@@ -1,2 +1,2 @@
-# Data_Science_BD_Avanzadas 
+# Base de Datos Avanzadas  
 # README
