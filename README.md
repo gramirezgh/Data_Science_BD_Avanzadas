@@ -176,7 +176,6 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 |  | <a name='movies.clientes_deleteAt'>deleteAt</a>| date  ||
 |  | <a name='movies.clientes_bloqueado'>bloqueado</a>| boolean  ||
 |  | <a name='movies.clientes_motivoBloqueo'>motivoBloqueo</a>| string  ||
-|  | <a name='movies.clientes___v'>&#95;&#95;v</a>| integer  ||
 
 
 
@@ -193,7 +192,7 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 | *| <a name='movies.prestamos_updateAt'>updateAt</a>| date  |
 |  | <a name='movies.prestamos_deleted'>deleted</a>| boolean  |
 |  | <a name='movies.prestamos_deleteAt'>deleteAt</a>| date  |
-|  | <a name='movies.prestamos___v'>&#95;&#95;v</a>| integer  |
+
 
 
 
@@ -215,7 +214,7 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 | *| <a name='movies.videos_updateAt'>updateAt</a>| date  |
 | *| <a name='movies.videos_deleted'>deleted</a>| boolean  |
 |  | <a name='movies.videos_deleteAt'>deleteAt</a>| date  |
-|  | <a name='movies.videos___v'>&#95;&#95;v</a>| integer  |
+
 
 
 ## 3.- Mongo DB Agregaciones
