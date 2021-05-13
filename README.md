@@ -269,5 +269,5 @@ MongoDB rechazará cualquier operador que ocupe más de 100 MB de RAM y generar�
 ¡El orden importa! Poner $ match primero reducirá la cantidad de documentos que se pasan al resto de la canalización. Poner $ project a continuación reducirá aún más el tamaño de un documento individual al eliminar los campos.
 Finalmente, asegúrese de hacer todo el trabajo que requiere el uso de campos indexados (ordenar, emparejar, etc.) antes de usar operadores como $ project o $ desenrollar. Esto se debe a que estos operadores crean nuevos documentos que no tienen los índices del documento original.
 
-##5.-Conclusión
+## 5.-Conclusión
 MongoDB es una excelente herramienta de base de datos y puede ser realmente útil para pequeñas empresas y empresas que desean iterar rápidamente. Esto se debe en parte a sus restricciones flexibles y su naturaleza indulgente.
