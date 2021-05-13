@@ -225,16 +225,49 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 
 
 ## 3.- Mongo DB Agregaciones
+El marco de agregación se basa en el concepto de canalización. la imagen que lo explica mejor:
 ![](images/MDB_2.png)
+Como puede ver, recogemos una colección y la pasamos a través de una tubería. Esta canalización consta de ciertas etapas en las que ciertos operadores modifican los documentos de la colección utilizando diversas técnicas. Finalmente, la salida se devuelve a la aplicación que llama a la consulta.
+
+Se puede comparar con una consulta simple, como buscar. Claro, funciona en la mayoría de las formas, pero no es realmente útil cuando también desea modificar los datos mientras los recupera.
+
+O deberá buscar los documentos y modificarlos en consecuencia en la aplicación en el servidor, o peor aún, los enviará al cliente y dejará que el código de la interfaz lo modifique por usted.
+
+En ambos casos, está desperdiciando recursos y ancho de banda. Por lo tanto, el marco de agregación aborda este problema de manera ordenada. Veamos cómo lo hace con los operadores.
+
 ### 3.1 Pipeline
+
 ### 3.2 Pipeline Operators
+En MongoDB, la canalización es una matriz que consta de varios operadores, que toman un montón de documentos y escupen documentos modificados de acuerdo con las reglas especificadas por el programador. El siguiente operador toma los documentos escupidos por el operador anterior, por lo tanto, se llama canalización.
+
+Puede tener muchos operadores en una canalización y estos operadores también se pueden repetir, a diferencia de las consultas habituales de MongoDB.
+
 ### $group
+Este operador le permite agrupar un montón de documentos sobre la base de un determinado campo en los documentos. También se puede utilizar para agrupar los distintos campos de los documentos.
+
 ### $match
+El operador de canalización de coincidencias funciona de manera muy similar a cómo funciona el operador de búsqueda normal. Sin embargo, lo bueno de esto es que se puede usar varias veces porque se encuentra en un entorno de canalización.
+
 ### $limit
+El operador de canalización $ skip omite los primeros N documentos y pasa el resto de los documentos al siguiente operador.
+
 ### $skip
+El operador de canalización $ skip omite los primeros N documentos y pasa el resto de los documentos al siguiente operador
+
 ### $unwind
+Este operador es personalmente mi favorito. $ desenrollar toma un campo de matriz y lo descompone en múltiples N subdocumentos con el i-ésimo documento que contiene el i-ésimo valor particular de matriz como el valor del nombre del campo.
+
 ### $project
+El operador del proyecto le permite extraer un montón de campos de cada documento y descartar el resto. No solo eso, sino que también puede cambiar el nombre de los campos pinchados, cadenas concat, eliminar subcadenas y mucho más.
 
-## 4.-Rendimiento y Análisis de Consultas
+## 4.-Mejores prácticas para usar el marco de agregación
+Con un gran poder viene una gran responsabilidad. También puede explotar fácilmente el marco de agregación para realizar consultas simples, por lo que es importante asegurarse de no escribir consultas de base de datos deficientes.
 
-## 5.- Conclusiones
+Para empezar, tenga en cuenta los siguientes puntos:
+
+MongoDB rechazará cualquier operador que ocupe más de 100 MB de RAM y generará un error. Por lo tanto, asegúrese de recortar sus datos lo antes posible, ya que un solo operador no debería ocupar más de 100 MB de memoria.
+¡El orden importa! Poner $ match primero reducirá la cantidad de documentos que se pasan al resto de la canalización. Poner $ project a continuación reducirá aún más el tamaño de un documento individual al eliminar los campos.
+Finalmente, asegúrese de hacer todo el trabajo que requiere el uso de campos indexados (ordenar, emparejar, etc.) antes de usar operadores como $ project o $ desenrollar. Esto se debe a que estos operadores crean nuevos documentos que no tienen los índices del documento original.
+
+##5.-Conclusión
+MongoDB es una excelente herramienta de base de datos y puede ser realmente útil para pequeñas empresas y empresas que desean iterar rápidamente. Esto se debe en parte a sus restricciones flexibles y su naturaleza indulgente.
