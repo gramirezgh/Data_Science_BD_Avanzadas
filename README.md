@@ -78,8 +78,77 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD7
 ```
 Se importa el repositorio de MongoDB.
 ```
-sudo apt update
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 ```
+Se procede con la instalación de MongoDB.
+```
+sudo apt-get install -y mongodb-org
+```
+## Configuración del Replica Set
+
+Ahora se procede a realizar todas las configuraciones necesarias para el Replica Set.
+
+Se edita el archivo **mongod.conf** en todos los servidores.
+```
+sudo nano /etc/mongod.conf
+```
+Se modifica el siguiente contenido con la dirección IP correspondiente de cada uno.
+ 1. mongodb-01:
+  	net:
+  	  port: 27017
+  	  bindIp: 192.168.1.210
+
+ 1. mongodb-02:
+  	net:
+  	  port: 27017
+  	  bindIp: 192.168.1.211
+
+ 1. mongodb-03:
+  	net:
+  	  port: 27017
+  	  bindIp: 192.168.1.212
+Y en el mismo archivo se añade el nombre del Replica Set que sera el mismo para todos (**replica01**).
+```
+replication:
+	  replSetName: "replica01"
+```
+Se habilta el servicio **mongod** para que se inicie automáticamente cuando se arranquen los servidores.
+```
+sudo systemctl enable mongod.service"
+```
+Se reinicia el servicio mongod para que actualice los cambios realizados anteriormente en el archivo mongod.conf.
+```
+sudo systemctl restart mongod.service
+```
+Uno de los nodos de MongoDB se ejecuta como PRIMARIO (**MASTER**), y todos los demás nodos funcionarán como SECUNDARIO (**SLAVE**). Los datos están siempre en el nodo PRIMARIO y los conjuntos de datos se replican en todos los demás nodos SECUNDARIOS.
+
+Para configurar el Replica Set se inicia la terminal en uno de los nodos.
+```
+sudo systemctl restart mongod.service
+```
+Se inicia el conjunto de réplicas en el nodo 1 ejecutando el siguiente comando.
+```
+rs.initiate()
+```
+Posteriormente se añade los otros dos nodos al Replica Set.
+```
+rs.add("mongodb-02")
+rs.add("mongodb-03")
+```
+Se puede comprobar el estado del RPS ejecutando:
+```
+rs.status()
+```
+> En el caso de que en el nodo 1 nos haya puesto la dirección IP en vez de el nombre, podemos cambiarlo ejecutando los siguientes comando:
+>
+> ```
+> cfg = rs.conf()
+> cfg.members[0].host = "mongodb-01:27017"
+> rs.reconfig(cfg)
+> `
+
+Y el siguiente comando nos dirá cual de los nodos es el MASTER.
+
 
 
 
