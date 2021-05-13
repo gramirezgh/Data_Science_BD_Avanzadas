@@ -164,9 +164,8 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 ### Collection clientes 
 | Idx | Nombre | Data Type | Descripción|
 |---|---|---|---|
-| *🔑 ⬋ | <a name='movies.clientes__id'>&#95;id</a>| oid  |
+| *🔑 ⬋ | <a name='movies.clientes__id'>&#95;id</a>| string  |
 | *| <a name='movies.clientes_nombreCompleto'>nombreCompleto</a>| string  | Nombre completo del cliente|
-| *| <a name='movies.clientes_nit'>nit</a>| string  | Nit del cliente|
 | *| <a name='movies.clientes_celular'>celular</a>| string  |Celular del cliente|
 | *| <a name='movies.clientes_fechaNacimiento'>fechaNacimiento</a>| date  ||
 | *| <a name='movies.clientes_direccion'>direccion</a>| string  ||
@@ -174,7 +173,6 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 | *| <a name='movies.clientes_longitud'>longitud</a>| string  ||
 | *| <a name='movies.clientes_createAt'>createAt</a>| date  ||
 | *| <a name='movies.clientes_updateAt'>updateAt</a>| date  ||
-| *| <a name='movies.clientes_deleted'>deleted</a>| boolean  ||
 |  | <a name='movies.clientes_deleteAt'>deleteAt</a>| date  ||
 |  | <a name='movies.clientes_bloqueado'>bloqueado</a>| boolean  ||
 |  | <a name='movies.clientes_motivoBloqueo'>motivoBloqueo</a>| string  ||
@@ -185,12 +183,10 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 ### Collection prestamos 
 | Idx | Nombre | Data Type | Descripción |
 |---|---|---|---|
-| *🔑 | <a name='movies.prestamos__id'>&#95;id</a>| oid  |
-| *⬈ | <a name='movies.prestamos_cliente'>cliente</a>| oid  |Id de la coleccion cliente|
+| *🔑 | <a name='movies.prestamos__id'>&#95;id</a>| string |
 | *⬈ | <a name='movies.prestamos_videos'>videos</a>| array  | Id de la coleccion video|
 | *| <a name='movies.prestamos_fechaDevolucion'>fechaDevolucion</a>| date  | Fecha de la devolucion| 
 | *| <a name='movies.prestamos_diasPrestamo'>diasPrestamo</a>| integer  | Dias de prestamo|
-| *| <a name='movies.prestamos_descuento'>descuento</a>| integer  | Monto calculado del descuento|
 | *| <a name='movies.prestamos_importeTotal'>importeTotal</a>| integer  | Monto total con descuento|
 | *| <a name='movies.prestamos_devuelto'>devuelto</a>| boolean  | Indica si el video fue devuelto |
 | *| <a name='movies.prestamos_createAt'>createAt</a>| date  |
@@ -204,13 +200,11 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 ### Collection videos 
 | Idx | Nombre | Data Type | Descripción |
 |---|---|---|---|
-| *🔑 ⬋ | <a name='movies.videos__id'>&#95;id</a>| oid  |
+| *🔑 ⬋ | <a name='movies.videos__id'>&#95;id</a>| string  |
 | *| <a name='movies.videos_titulo'>titulo</a>| string  | Nombre de la pelicula|
 | *| <a name='movies.videos_genero'>genero</a>| array  | Generos de la pelicula|
 | *| <a name='movies.videos_anioPublicacion'>anioPublicacion</a>| integer  | Anio de la publicacion de la pelicula|
 | *| <a name='movies.videos_duracion'>duracion</a>| integer  | Duración de la película en minutos|
-| *| <a name='movies.videos_reparto'>reparto</a>| array  | Principales actores de la pelicula|
-|  | <a name='movies.videos_director'>director</a>| string  |Director de la pelicula|
 |  | <a name='movies.videos_nominaciones'>nominaciones</a>| object  | Nominaciones y premios de la pelicula|
 | *| <a name='movies.videos_nominaciones.wins'>nominaciones&#46;wins</a>| integer  |
 | *| <a name='movies.videos_nominaciones.nominations'>nominaciones&#46;nominations</a>| integer  |
