@@ -179,8 +179,7 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 |  | <a name='movies.clientes_bloqueado'>bloqueado</a>| boolean  ||
 |  | <a name='movies.clientes_motivoBloqueo'>motivoBloqueo</a>| string  ||
 |  | <a name='movies.clientes___v'>&#95;&#95;v</a>| integer  ||
-| Indexes 
-| 🔑 | &#95;id&#95; || ON &#95;id|
+
 
 
 ### Collection prestamos 
@@ -199,11 +198,7 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 |  | <a name='movies.prestamos_deleted'>deleted</a>| boolean  |
 |  | <a name='movies.prestamos_deleteAt'>deleteAt</a>| date  |
 |  | <a name='movies.prestamos___v'>&#95;&#95;v</a>| integer  |
-| Indexes 
-| 🔑 | &#95;id&#95; || ON &#95;id|| Virtual Relations | Vir | Virtual Relation | ( cliente ) ref [movies&#46;descuentos](#descuentos) (&#95;id) 
-|| Vir | Fk_prestamos_clientes | ( cliente ) ref [movies&#46;clientes](#clientes) (&#95;id) 
-|| Vir | Fk_prestamos_videos | ( videos ) ref [movies&#46;videos](#videos) (&#95;id) 
-|
+
 
 
 ### Collection videos 
@@ -227,8 +222,7 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 | *| <a name='movies.videos_deleted'>deleted</a>| boolean  |
 |  | <a name='movies.videos_deleteAt'>deleteAt</a>| date  |
 |  | <a name='movies.videos___v'>&#95;&#95;v</a>| integer  |
-| Indexes 
-| 🔑 | &#95;id&#95; || ON &#95;id|
+
 
 ## 3.- Mongo DB Agregaciones
 ### 3.1 Pipeline
