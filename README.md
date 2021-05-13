@@ -225,6 +225,7 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 
 
 ## 3.- Mongo DB Agregaciones
+![](images/MDB_2.png)
 ### 3.1 Pipeline
 ### 3.2 Pipeline Operators
 ### $group
