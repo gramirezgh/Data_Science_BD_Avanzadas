@@ -8,6 +8,9 @@ EL Obejtivo de la creacíon de Replicaset Es proporcionar ALta Disponibilidad de
 ### 1.1 Esquema de Red
 ![](images/MDB_1.png)
 
+### 1.2 Configuración
+EL  sistema base es linux en su version neon, correspondiente a la familia debian de tal forma se realiza la actualización de los repositorios y paquetes 
+
 ## 2.- Modelo de datos 
 
 ## 3.- Mongo DB Agregaciones
