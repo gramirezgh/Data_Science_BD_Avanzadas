@@ -11,6 +11,78 @@ EL Obejtivo de la creacíon de Replicaset Es proporcionar ALta Disponibilidad de
 ### 1.2 Configuración
 EL  sistema base es linux en su version neon, correspondiente a la familia debian de tal forma se realiza la actualización de los repositorios y paquetes 
 
+```
+sudo apt update
+sudo apt upgrade
+```
+A ada servidor una dirección IP fija a través de Netplan.
+Lo primero será comprobar si ya disponemos de algún archivo de configuración:
+```
+sudo nano /etc/netplan/50-netcfg.yaml
+```
+Por ejemplo de la configuración  de unos de los servidores puede ser la siguiente:
+```
+	network:
+	ethernets:
+	    enp0s3:
+	        addresses: [192.168.1.210/24]
+	        dhcp4: no
+	        gateway4: 192.168.1.1
+	        nameservers:
+	            addresses: [8.8.8.8, 8.8.4.4]
+	version: 2
+```
+Una vez guardado nuestra configuración la podemos aplicar con el siguiente comando.
+```
+ sudo netplan apply 
+```
+Si durante la instalación del sistema operativo no hemos configurado el hostname correctamente o hemos partido de un clon de otra máquina virtual, lo cambiaremos por el que corresponda.
+```
+sudo nano /etc/hostname
+```
+Entonces para el nodo 1 será:
+```
+mongodb-01
+```
+Para que este cambio sea persistente a los reinicios editaremos el siguiente archivo.
+```
+sudo nano /etc/cloud/cloud.cfg
+```
+Y pondremos el siguiente setting a *true*.
+
+```
+preserve_hostname: true
+```
+También lo cambiaremos en el archivo host:
+```
+sudo nano /etc/hosts
+```
+Además de cambiar su nombre, también tenemos que añadir el Hostname y la Dirección IP de los otros dos nodos.
+```
+    192.168.1.210	mongodb-01
+    192.168.1.211   mongodb-02
+    192.168.1.212   mongodb-03
+```
+Se debe reiniciar los servidores para que los cambios se observen.
+```
+sudo reboot
+```
+# Instalación de Replica Set
+
+## Instalación de MongoDB
+Antes de empezar a configurar el Replica Set se necesita tener instalado MongoDB de forma independiente en cada servidor.
+
+Importar la clave pública utilizada por el sistema de gestión de paquetes.
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+```
+Se importa el repositorio de MongoDB.
+```
+sudo apt update
+```
+
+
+
 ## 2.- Modelo de datos 
 
 ## 3.- Mongo DB Agregaciones
