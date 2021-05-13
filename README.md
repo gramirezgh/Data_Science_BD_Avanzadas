@@ -67,9 +67,9 @@ Se debe reiniciar los servidores para que los cambios se observen.
 ```
 sudo reboot
 ```
-# Instalación de Replica Set
+## Instalación de Replica Set
 
-## Instalación de MongoDB
+### Instalación de MongoDB
 Antes de empezar a configurar el Replica Set se necesita tener instalado MongoDB de forma independiente en cada servidor.
 
 Importar la clave pública utilizada por el sistema de gestión de paquetes.
@@ -139,18 +139,26 @@ Se puede comprobar el estado del RPS ejecutando:
 ```
 rs.status()
 ```
-> En el caso de que en el nodo 1 nos haya puesto la dirección IP en vez de el nombre, podemos cambiarlo ejecutando los siguientes comando:
+En el caso de que en el nodo 1 se haya puesto la dirección IP en vez de el nombre, podemos cambiarlo ejecutando los siguientes comando:
 >
 > ```
 > cfg = rs.conf()
 > cfg.members[0].host = "mongodb-01:27017"
 > rs.reconfig(cfg)
-> `
+> ```
 
 Y el siguiente comando nos dirá cual de los nodos es el MASTER.
+```
+rs.isMaster()
+```
+### Probando Alta Disponibilidad
+Una vez tenemos configurado nuestro Replica Set solo queda realizar pruebas para ver si realmente funciona.
 
-
-
+Ahora procedemos a parar el servicio de mongodb-01.
+```
+sudo service mongod stop
+```
+Si refrescamos la conexión se observa como podemos seguir conectándonos y accediendo a nuestro datos pero en este caso el nodo 1 mongodb-01 esta sin conexión, mongodb-02 a pasado a ser el nodo PRIMARIO y mongodb-03 sigue estando como SECUNDARIO. 
 
 ## 2.- Modelo de datos 
 
