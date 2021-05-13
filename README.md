@@ -182,15 +182,6 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 | Indexes 
 | 🔑 | &#95;id&#95; || ON &#95;id|
 
-### Collection descuentos 
-| Idx | Nombre | Data Type | Descripción|
-|---|---|---|---|
-| *🔑 ⬋ | <a name='movies.descuentos__id'>&#95;id</a>| oid  |
-| *| <a name='movies.descuentos_minimo'>minimo</a>| integer  | mínimo del intervalo|
-| *| <a name='movies.descuentos_maximo'>maximo</a>| integer  | máximo del intervalo|
-| *| <a name='movies.descuentos_descuento'>descuento</a>| integer  | Porcentaje de descuento|
-| Indexes 
-| 🔑 | &#95;id&#95; || ON &#95;id|
 
 ### Collection prestamos 
 | Idx | Nombre | Data Type | Descripción |
@@ -214,14 +205,6 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 || Vir | Fk_prestamos_videos | ( videos ) ref [movies&#46;videos](#videos) (&#95;id) 
 |
 
-### Collection tarifas 
-| Idx | Nombre | Data Type | Descripción|
-|---|---|---|---|
-| *🔑 | <a name='movies.tarifas__id'>&#95;id</a>| oid  |
-| *| <a name='movies.tarifas_dias'>dias</a>| integer  | Cantidad de dias|
-| *| <a name='movies.tarifas_costo'>costo</a>| integer  | Costo de la cantidad de dias del prestamo|
-| Indexes 
-| 🔑 | &#95;id&#95; || ON &#95;id|
 
 ### Collection videos 
 | Idx | Nombre | Data Type | Descripción |
@@ -246,6 +229,7 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 |  | <a name='movies.videos___v'>&#95;&#95;v</a>| integer  |
 | Indexes 
 | 🔑 | &#95;id&#95; || ON &#95;id|
+
 ## 3.- Mongo DB Agregaciones
 ### 3.1 Pipeline
 ### 3.2 Pipeline Operators
