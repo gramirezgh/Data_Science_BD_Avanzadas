@@ -160,24 +160,7 @@ sudo service mongod stop
 ```
 Si refrescamos la conexión se observa como podemos seguir conectándonos y accediendo a nuestro datos pero en este caso el nodo 1 mongodb-01 esta sin conexión, mongodb-02 a pasado a ser el nodo PRIMARIO y mongodb-03 sigue estando como SECUNDARIO. 
 
-## 2.- Modelo de datos 
-### Diagrama de documentos
-![Diagrama](diagram.jpg)
-
-### Collection bajas 
-| Idx | Nombre | Data Type | Descripción |
-|---|---|---|---|
-| *🔑 | <a name='movies.bajas__id'>&#95;id</a>| oid  ||
-| *⬈ | <a name='movies.bajas_video'>video</a>| oid  | Relacion con la coleccion **videos**|
-| *| <a name='movies.bajas_motivo'>motivo</a>| string  | Motivo de la baja p.e. No fue devuelto|
-| *| <a name='movies.bajas_createAt'>createAt</a>| date  ||
-| *| <a name='movies.bajas_updateAt'>updateAt</a>| date  ||
-| *| <a name='movies.bajas_deleteAt'>deleteAt</a>| date  ||
-| *| <a name='movies.bajas___v'>&#95;&#95;v</a>| integer  ||
-| Indexes 
-| 🔑 | &#95;id&#95; || ON &#95;id|| Virtual Relations | Vir | Virtual Relation | ( video ) ref [movies&#46;videos](#videos) (&#95;id) 
-|
-# Diccionario de datos
+## 2.- Diccionario de datos
 ### Collection clientes 
 | Idx | Nombre | Data Type | Descripción|
 |---|---|---|---|
