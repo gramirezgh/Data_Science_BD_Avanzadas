@@ -166,8 +166,9 @@ Si refrescamos la conexión se observa como podemos seguir conectándonos y acce
 |---|---|---|---|
 | *🔑 ⬋ | <a name='movies.clientes__id'>&#95;id</a>| string  |
 | *| <a name='movies.clientes_nombreCompleto'>nombreCompleto</a>| string  | Nombre completo del cliente|
-| *| <a name='movies.clientes_celular'>celular</a>| string  |Celular del cliente|
-| *| <a name='movies.clientes_fechaNacimiento'>fechaNacimiento</a>| date  ||
+| *| <a name='movies.clientes_celular'>numeroCelular</a>| string  |Celular del cliente|
+| *| <a name='movies.clientes_fechaNacimiento'>fechaNacimiento</a>| date  |Fecha de Nacimiento del Cliente|
+|  | <a name='movies.clientes_correo'>correoElectronico</a>| string  ||
 | *| <a name='movies.clientes_direccion'>direccion</a>| string  ||
 | *| <a name='movies.clientes_latitud'>latitud</a>| string  ||
 | *| <a name='movies.clientes_longitud'>longitud</a>| string  ||
