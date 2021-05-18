@@ -61,7 +61,7 @@ sudo nano /etc/hosts
 ```
 Además de cambiar su nombre, también tenemos que añadir el Hostname y la Dirección IP de los otros dos nodos.
 ```
-    192.168.1.210	mongodb-01
+    192.168.1.210   mongodb-01
     192.168.1.211   mongodb-02
     192.168.1.212   mongodb-03
 ```
